@@ -1,0 +1,106 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>PS4 FW9.00一键折腾</title>
+    <script src="./bundle.js"></script>
+    <style>
+      body {
+        background-color: #0A0A2A;
+        color:  white;
+		font-size:24px;
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        text-align: center;
+      }
+      h1 {
+        margin-bottom: 20px;
+      }
+      #console {
+        font-family: monospace;
+        background-color: black;
+        color: #cccccc;
+        border: 1px solid #3c3c3c;
+        padding: 12px;
+        border-radius: 6px;
+        margin-top: 20px;
+        text-align: left;
+      }
+      #jailbreakBtn {
+        margin-top: 20px;
+        padding: 12px 24px;
+        font-size: 30px;
+        font-weight: bold;
+        background: red;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+      #jailbreakBtn:disabled {
+        background: #555555;
+        color: #aaaaaa;
+        cursor: not-allowed;
+      }
+      #jailbreakBtn:not(:disabled):hover {
+        background: green;
+      }
+      footer {
+        margin-top: 30px;
+        font-size: 14px;
+        color: #888;
+      }
+	  
+    </style>
+    <script>
+      if ((window.applicationCache.status == '0') || (window.applicationCache.status == '3')) { // 0: UNCACHED, 3: IDLE
+        window.location.replace("cache.html");
+      }
+    </script>
+  </head>
+  <body><br>
+    <h1>PS4 FW9.00一键折腾V1</h1>
+	    <h2>（PSfree+lapse）</h2>
+    <div><br><br>
+      <button id="jailbreakBtn" style='font-size:30px;text-align:center;color:white;text-shadow: 4px 4px 4px black;'>开 始 折 腾</button>
+    </div>
+    <pre id="console"></pre>
+    <footer>
+       <strong>制作日期2025.11.20</strong>
+    </footer>
+  </body>
+  <script>
+    // Logging utility
+    const outputConsole = document.getElementById("console");
+    window.log = (msg, color="#cccccc") => { outputConsole.innerHTML += `<span style="color:${color}">${msg}</span><br>`; };
+    // Event definitions
+    addEventListener('unhandledrejection', event => {
+      const reason = event.reason;
+      alert(
+        'Unhandled rejection\n'
+        + `${reason}\n`
+        + `${reason.sourceURL}:${reason.line}:${reason.column}\n`
+        + `${reason.stack}`
+      );
+    });
+    addEventListener('error', event => {
+      const reason = event.error;
+      alert(
+        'Unhandled error\n'
+        + `${reason}\n`
+        + `${reason.sourceURL}:${reason.line}:${reason.column}\n`
+        + `${reason.stack}`
+      );
+      return true; // Used for not to show error message on console
+    });
+    // Button click
+    document.getElementById("jailbreakBtn").addEventListener("click", () => {
+      // Disable to prevent double click
+      document.getElementById("jailbreakBtn").disabled = true;
+      outputConsole.textContent = ""; // Clear console log
+      try {
+        doJBwithPSFreeLapseExploit();
+      } catch (error) {
+        window.log("An error occured during exploit: " + error, "red");
+      }
+    });
+  </script>
+</html>
