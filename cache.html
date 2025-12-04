@@ -1,9 +1,8 @@
 <html manifest="psfree_lapse.cache">
   <head>
     <meta charset="utf-8">
-    <title>PS4 FW9.00一键折腾</title>
+    <title>PS4 FW7-9系统一键折腾</title>
     <style>
-       body {
         body {
         background-color: #0A0A2A;
         color:  white;
@@ -52,14 +51,14 @@
     </style>
   </head>
  <body><br>
-    <h1>PS4 FW9.00一键折腾V1</h1>
+    <h1>PS4 FW7-9系统一键折腾V2</h1>
 	    <h2>（PSfree+lapse）</h2>
     <div><br><br>
       <button id="jailbreakBtn" style='font-size:30px;text-align:center;color:white;text-shadow: 4px 4px 4px black;'>开 始 折 腾</button>
     </div>
     <pre id="console"></pre>
     <footer>
-       <strong>制作日期2025.11.20</strong>
+       <strong>制作日期2025.12.04</strong>
     </footer>
   </body>
   <script>
@@ -78,8 +77,8 @@
     // On cache complete
     function DisplayCacheProgress() {
       window.log(" ");
-      window.log("[SUCCESS] Cache installed successfully.");
-      window.log("Page will reload in 3 seconds...");
+      window.log("网页缓存完成.");
+      window.log("网页刷新中...");
       // Delay to show success message before navigation
       setTimeout(function() { window.log("Reloading..."); }, 2000);
       // Navigate back to index.html to load the exploit from cache
@@ -92,8 +91,8 @@
     // Initialization message on DOM load
     document.addEventListener('DOMContentLoaded', () => {
       outputConsole.textContent = ""; // Clear console log
-      window.log("AppCache download initiating...");
-      window.log("Please wait, this may take a few seconds.");
+      window.log("网页缓存下载中...");
+      window.log("请等待...");
     });
   </script>
 </html>
